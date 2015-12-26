@@ -1,0 +1,41 @@
+{
+  "functions": {
+    "testpost2": {
+      "custom": {
+        "excludePatterns": [],
+        "envVars": []
+      },
+      "handler": "modules/serverless-examples/testpost2/handler.handler",
+      "timeout": 6,
+      "memorySize": 1024,
+      "eventSourceArn": "",
+      "endpoints": [
+        {
+          "path": "examples/test5/{key}",
+          "method": "POST",
+          "authorizationType": "none",
+          "apiKeyRequired": false,
+          "requestParameters": {
+            "integration.request.querystring.key": "method.request.querystring.key"
+          },
+          "requestTemplates": {
+            "application/json": "{\n\"key\": \"$input.params('key')\"}"
+          },
+          "responses": {
+            "400": {
+              "statusCode": "400"
+            },
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {},
+              "responseModels": {},
+              "responseTemplates": {
+                "application/json": ""
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

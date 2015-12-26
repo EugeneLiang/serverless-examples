@@ -1,0 +1,42 @@
+{
+  "functions": {
+    "testget2": {
+      "custom": {
+        "excludePatterns": [],
+        "envVars": []
+      },
+      "handler": "modules/serverless-examples/testget2/handler.handler",
+      "timeout": 6,
+      "memorySize": 1024,
+      "eventSourceArn": "",
+      "endpoints": [
+        {
+          "path": "examples/test2",
+          "method": "GET",
+          "authorizationType": "none",
+          "apiKeyRequired": false,
+          "requestParameters": {
+            "integration.request.querystring.var1": "method.request.querystring.var1",
+            "integration.request.querystring.var2": "method.request.querystring.var2"
+          },
+          "requestTemplates": {
+            "application/json": "{\n\"var1\": \"$input.params('var1')\",\n\"var2\": \"$input.params('var2')\"}"
+          },
+          "responses": {
+            "400": {
+              "statusCode": "400"
+            },
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {},
+              "responseModels": {},
+              "responseTemplates": {
+                "application/json": ""
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

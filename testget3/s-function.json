@@ -1,0 +1,41 @@
+{
+  "functions": {
+    "testget3": {
+      "custom": {
+        "excludePatterns": [],
+        "envVars": []
+      },
+      "handler": "modules/serverless-examples/testget3/handler.handler",
+      "timeout": 6,
+      "memorySize": 1024,
+      "eventSourceArn": "",
+      "endpoints": [
+        {
+          "path": "examples/test3/{var3}/status",
+          "method": "GET",
+          "authorizationType": "none",
+          "apiKeyRequired": false,
+          "requestParameters": {
+            "integration.request.querystring.var3": "method.request.querystring.var3"
+          },
+          "requestTemplates": {
+            "application/json": "{\n\"var3\": \"$input.params('var3')\"}"
+          },
+          "responses": {
+            "400": {
+              "statusCode": "400"
+            },
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {},
+              "responseModels": {},
+              "responseTemplates": {
+                "application/json": ""
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

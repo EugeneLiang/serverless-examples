@@ -1,0 +1,16 @@
+{
+  "name": "serverless-examples",
+  "version": "0.0.2",
+  "description": "Dependencies for a Serverless Module written in Node.js",
+  "author": "me",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/"
+  },
+  "keywords": [],
+  "devDependencies": {},
+  "dependencies": {
+    "serverless-helpers-js": "~0.0.3"
+  }
+}
