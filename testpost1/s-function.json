@@ -11,7 +11,7 @@
       "eventSourceArn": "",
       "endpoints": [
         {
-          "path": "examples/test4",
+          "path": "examples/four",
           "method": "POST",
           "authorizationType": "none",
           "apiKeyRequired": false,

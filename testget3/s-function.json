@@ -11,7 +11,7 @@
       "eventSourceArn": "",
       "endpoints": [
         {
-          "path": "examples/test3/{var3}/status",
+          "path": "examples/three/{var3}/status",
           "method": "GET",
           "authorizationType": "none",
           "apiKeyRequired": false,

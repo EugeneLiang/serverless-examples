@@ -11,7 +11,7 @@
       "eventSourceArn": "",
       "endpoints": [
         {
-          "path": "examples/test5/{key}",
+          "path": "examples/five/{key}",
           "method": "POST",
           "authorizationType": "none",
           "apiKeyRequired": false,
@@ -19,7 +19,7 @@
             "integration.request.querystring.key": "method.request.querystring.key"
           },
           "requestTemplates": {
-            "application/json": "{\n\"key\": \"$input.params('key')\"}"
+            "application/json": "{\"key\": \"$input.params('key')\", \"value\": $input.json('$.value')}"
           },
           "responses": {
             "400": {
