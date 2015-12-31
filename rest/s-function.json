@@ -1,0 +1,137 @@
+{
+  "functions": {
+    "rest": {
+      "custom": {
+        "excludePatterns": [],
+        "envVars": []
+      },
+      "handler": "modules/serverless-examples/rest/handler.handler",
+      "timeout": 6,
+      "memorySize": 1024,
+      "eventSourceArn": "",
+      "endpoints": [
+        {
+          "path": "rest/thing",
+          "method": "GET",
+          "authorizationType": "none",
+          "apiKeyRequired": false,
+          "requestParameters": {},
+          "requestTemplates": {
+            "application/json": "{\"httpmethod\": \"$context.httpMethod\"}"
+          },
+          "responses": {
+            "400": {
+              "statusCode": "400"
+            },
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {},
+              "responseModels": {},
+              "responseTemplates": {
+                "application/json": ""
+              }
+            }
+          }
+        },
+        {
+          "path": "rest/thing/{id}",
+          "method": "GET",
+          "authorizationType": "none",
+          "apiKeyRequired": false,
+          "requestParameters": {
+            "integration.request.path.id": "method.request.path.id"
+            },
+          "requestTemplates": {
+            "application/json": "{\"httpmethod\": \"$context.httpMethod\", \"id\": \"$input.params('id')\"}"
+          },
+          "responses": {
+            "400": {
+              "statusCode": "400"
+            },
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {},
+              "responseModels": {},
+              "responseTemplates": {
+                "application/json": ""
+              }
+            }
+          }
+        },
+        {
+          "path": "rest/thing",
+          "method": "POST",
+          "authorizationType": "none",
+          "apiKeyRequired": false,
+          "requestParameters": {},
+          "requestTemplates": {
+            "application/json": "{\"httpmethod\": \"$context.httpMethod\", \"id\": $input.json('$.id'), \"value\": $input.json('$.value')}"
+          },
+          "responses": {
+            "400": {
+              "statusCode": "400"
+            },
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {},
+              "responseModels": {},
+              "responseTemplates": {
+                "application/json": ""
+              }
+            }
+          }
+        },
+        {
+          "path": "rest/thing/{id}",
+          "method": "PUT",
+          "authorizationType": "none",
+          "apiKeyRequired": false,
+          "requestParameters": {
+            "integration.request.path.id": "method.request.path.id"
+          },
+          "requestTemplates": {
+            "application/json": "{\"httpmethod\": \"$context.httpMethod\", \"id\": \"$input.params('id')\", \"value\": $input.json('$.value')}"
+          },
+          "responses": {
+            "400": {
+              "statusCode": "400"
+            },
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {},
+              "responseModels": {},
+              "responseTemplates": {
+                "application/json": ""
+              }
+            }
+          }
+        },
+        {
+          "path": "rest/thing/{id}",
+          "method": "DELETE",
+          "authorizationType": "none",
+          "apiKeyRequired": false,
+          "requestParameters": {
+            "integration.request.path.id": "method.request.path.id"
+          },
+          "requestTemplates": {
+            "application/json": "{\"httpmethod\": \"$context.httpMethod\", \"id\": \"$input.params('id')\"}"
+          },
+          "responses": {
+            "400": {
+              "statusCode": "400"
+            },
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {},
+              "responseModels": {},
+              "responseTemplates": {
+                "application/json": ""
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
